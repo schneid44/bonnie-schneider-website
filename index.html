@@ -7,7 +7,7 @@
   <meta name="description" content="Bonnie Schneider, Licensed Clinical Social Worker with 30+ years of experience. Specializing in caregiving, aging, grief counseling, and dementia support." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -77,20 +77,19 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      padding: 72px 8% 7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding-top: 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
       background: linear-gradient(160deg, var(--cream) 0%, var(--sage-light) 100%);
     }
 
     .hero-content {
-      max-width: 860px;
-      width: 100%;
-      text-align: center;
+      padding: 6rem 5% 6rem 8%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     .hero-badge {
@@ -123,12 +122,20 @@
       flex-shrink: 0;
     }
 
+    .hero-name {
+      font-size: clamp(4rem, 7vw, 8rem);
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-size: clamp(2.4rem, 3.5vw, 3.4rem);
       line-height: 1.2;
       color: var(--sage-dark);
-      margin-top: 3.5rem;
       margin-bottom: 1.5rem;
     }
 
@@ -141,8 +148,7 @@
       font-size: 0.9rem;
       color: var(--text-light);
       letter-spacing: 0.05em;
-      margin-top: 0.5rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -150,8 +156,8 @@
     .hero p {
       font-size: 1.05rem;
       color: var(--text-light);
-      max-width: 780px;
-      margin-bottom: 3.5rem;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
       font-weight: 300;
       line-height: 1.8;
     }
@@ -160,7 +166,25 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
       justify-content: center;
+      padding: 4rem 3rem;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      max-width: 620px;
+      max-height: 720px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     .btn-secondary {
@@ -193,24 +217,97 @@
 
     .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); }
 
-    .hero-portrait {
-      width: 220px;
-      height: 220px;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 5px solid var(--white);
-      box-shadow: 0 0 0 2px rgba(196,149,106,0.45), 0 8px 36px rgba(0,0,0,0.12);
-      margin-top: 3.5rem;
-      margin-bottom: 1.5rem;
-      flex-shrink: 0;
+
+    /* ── BOOK AN APPOINTMENT ── */
+    .book-section { background: var(--sage-light); }
+
+    .book-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .hero-portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
+    .book-header { margin-bottom: 3rem; }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .book-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      border-top: 4px solid var(--sage);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .book-card-icon {
+      font-size: 2rem;
+    }
+
+    .book-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--sage-dark);
+    }
+
+    .book-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 300;
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .book-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .book-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--sage-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .book-contact-item:hover { color: var(--gold); }
+
+    .book-contact-icon { font-size: 1.2rem; }
+
+    .book-insurance {
+      background: var(--sage-light);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+    }
+
+    .book-insurance-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .book-insurance-list {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .book-grid { grid-template-columns: 1fr; }
     }
 
     /* ── CREDENTIALS BAR ── */
@@ -272,7 +369,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      gap: 15rem;
       align-items: center;
       max-width: 1100px;
       margin: 0 auto;
@@ -285,15 +382,62 @@
       line-height: 1.85;
     }
 
-    .about-image-wrap {
-      position: relative;
+    .about-style { margin-top: 1.5rem; }
+
+    .about-style-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
     }
 
-    .about-image-wrap img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      display: block;
+    .about-style-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .about-style-tags span {
+      background: var(--sage-light);
+      color: var(--sage-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .about-image-wrap {
+      position: relative;
+      margin-top: -3rem;
+    }
+
+    .about-portrait-group {
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-circle-frame {
+      width: 200px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--white);
+      box-shadow: 0 0 0 2px var(--sage), var(--shadow);
+      margin: 0;
+      position: relative;
+      background: var(--white);
+    }
+
+    .about-circle-img {
+      position: absolute;
+      width: 130%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-60%, -50%);
     }
 
     .about-image-wrap::after {
@@ -310,7 +454,7 @@
 
     .years-badge {
       position: absolute;
-      top: -20px;
+      bottom: -85px;
       left: -20px;
       background: var(--sage-dark);
       color: var(--white);
@@ -634,6 +778,9 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-content { padding: 4rem 6% 3rem; }
+      .hero-image-wrap { min-height: 50vh; }
       .about-grid, .approach-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
       .about-image-wrap { order: -1; }
       .nav-links { display: none; }
@@ -650,29 +797,29 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-brand">Bonnie Schneider, LCSW</a>
+    <a href="#" class="nav-brand">Bonnie Schneider · MS · LCSW · CDP</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#specialties">Specialties</a></li>
       <li><a href="#approach">Approach</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#book">Book</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Compassionate support<br>for <em>navigating life's</em> complex transitions</h1>
+      <p class="hero-name">Bonnie Schneider</p>
+      <h1>Compassionate support<br>for <em>navigating life's</em> <br> complex transitions</h1>
       <p>With over 30 years of experience in healthcare, I work with individuals and families navigating the complexities of caregiving, aging, grief, and chronic illness — with empathy, understanding, and hope.</p>
-            <div class="hero-buttons">
-        <a href="#specialties" class="btn-secondary">Areas of Expertise</a>
+      <div class="hero-buttons">
+        <a href="#book" class="btn-primary">Book an Appointment</a>
         <a href="#about" class="btn-secondary">About Me</a>
       </div>
-      <div class="hero-portrait">
-        <img src="images/bonnie.png" alt="Bonnie Schneider, Clinical Social Worker and Therapist" />
-      </div>
-      <div class="hero-badge">Verified by Psychology Today</div>
-      <p class="hero-credentials">MSW &nbsp;·&nbsp; LCSW &nbsp;·&nbsp; CDP</p>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="images/bonnie3.png" alt="Bonnie Schneider, Clinical Social Worker and Therapist" />
     </div>
   </section>
 
@@ -684,20 +831,71 @@
     <div class="trust-item"><span class="trust-icon">✔</span> Verified by Psychology Today</div>
   </div>
 
+  <!-- BOOK AN APPOINTMENT -->
+  <section id="book" class="book-section">
+    <div class="book-inner">
+      <div class="book-header">
+        <p class="section-label">Scheduling</p>
+        <h2 class="section-title">Book an Appointment</h2>
+      </div>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-card-icon">🏥</div>
+          <h3>Book Through Insurance</h3>
+          <p>If you have insurance coverage, you can book an appointment directly through Headway — a simple, secure platform that handles billing with your insurer so you only pay your copay.</p>
+          <div class="book-insurance">
+            <p class="book-insurance-label">Insurance Accepted</p>
+            <p class="book-insurance-list">Aetna &nbsp;·&nbsp; Carelon Behavioral Health &nbsp;·&nbsp; Cigna &nbsp;·&nbsp; Quest Behavioral Health</p>
+          </div>
+          <a href="https://care.headway.co/providers/bonnie-schneider-2?utm_source=pem&utm_medium=direct_link&utm_campaign=172153" target="_blank" rel="noopener noreferrer" class="btn-primary">Book via Headway</a>
+        </div>
+
+        <div class="book-card">
+          <div class="book-card-icon">📋</div>
+          <h3>Book Privately</h3>
+          <p>Private booking is available for patients who prefer to pay out-of-pocket or whose insurance plan is not among the covered providers. To schedule a consultation, please reach out directly by phone or email and Bonnie will personally follow up to discuss your needs and find a time that works for you.</p>
+          <div class="book-contact">
+            <a href="tel:2017482472" class="book-contact-item">
+              <span class="book-contact-icon">📞</span>
+              <span>(201) 748-2472</span>
+            </a>
+            <a href="mailto:Schneidb@optonline.net" class="book-contact-item">
+              <span class="book-contact-icon">✉️</span>
+              <span>Schneidb@optonline.net</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="about-grid">
       <div class="about-text">
         <p class="section-label">About Bonnie</p>
-        <h2 class="section-title">A Trusted Partner Through Life's Most Challenging Moments</h2>
-        <p>Navigating the complexities of caregiving and aging can be overwhelming, often leading to emotional and physical strain. As a Licensed Clinical Social Worker with over 30 years of experience in healthcare, I provide compassionate support and practical guidance for individuals and families facing these challenges.</p>
-        <p>I specialize in helping those coping with chronic or terminal illness, supporting caregivers of elderly loved ones, and addressing the family conflicts that can arise during these difficult times. My approach focuses on understanding, empathy, and empowering you to find balance, healing, and peace amidst life's transitions.</p>
-        <p>I have extensive experience supporting older adults as they navigate grief related to the loss of loved ones, independence, and the challenges of aging. As a Certified Dementia Practitioner with a strong background in grief counseling, I offer compassionate guidance and support to both individuals and caregivers.</p>
+        <h2 class="section-title">Great to meet you!</h2>
+        <p>My career began 33 years ago in the medical field, rooted in caring for my own family members while navigating a complex health care system. For the past 18 years, I have worked in Home Health Care, supporting caregivers as they face the challenges of caring for chronically or terminally ill loved ones. My work focuses on long-term planning, practical guidance, and empowering caregivers to reach their maximum potential while honoring their own well-being.</p>
+        <p>My approach to therapy is centered on empowering clients to seek the changes they need to lead peaceful, productive lives. I lead with compassion, understanding, and empathy, creating a supportive space where clients feel heard, respected, and capable of growth.</p>
+        <p>In our first session, clients can expect a welcoming and attentive space where I actively listen to their reasons for seeking counseling. We will explore what has been happening in their lives over the past year and the experiences that led them to decide that counseling was the right path for them.</p>
+        <div class="about-style">
+          <p class="about-style-label">My style</p>
+          <div class="about-style-tags">
+            <span>Direct</span><span>Open Minded</span><span>Affirming</span>
+          </div>
+        </div>
       </div>
       <div class="about-image-wrap">
-        <div class="years-badge">
-          <span class="num">30+</span>
-          <span class="label">Years of Experience</span>
+        <div class="about-portrait-group">
+          <div class="about-circle-frame">
+            <img src="images/Bonnie4.png" alt="Bonnie Schneider" class="about-circle-img" />
+          </div>
+          <div class="years-badge">
+            <span class="num">33</span>
+            <span class="label">Years of Experience</span>
+          </div>
         </div>
       </div>
     </div>
@@ -709,13 +907,18 @@
       <div class="specialties-header">
         <p class="section-label">Areas of Expertise</p>
         <h2 class="section-title">Clinical Focus &amp; Specializations</h2>
-        <p class="section-subtitle">My work is grounded in a deep understanding of the challenges that accompany aging, caregiving, and loss — supporting individuals and families through each stage with compassion and clinical expertise.</p>
+        <p class="section-subtitle">Serving adults and seniors across individual therapy, with a focus on caregiving, grief, and the challenges that accompany aging and chronic illness.</p>
       </div>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3>Caregiver Support</h3>
-          <p>Practical guidance and emotional support for those caring for elderly loved ones — helping sustain personal wellbeing while navigating the demands of caregiving.</p>
+          <div class="card-icon">🧠</div>
+          <h3>Anxiety</h3>
+          <p>Support for individuals managing anxiety related to health concerns, caregiving stress, aging, and life's uncertainties.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👨‍👩‍👧</div>
+          <h3>Family Issues</h3>
+          <p>Guidance through the tensions and conflicts that arise within families navigating caregiving decisions, changing roles, and major transitions.</p>
         </div>
         <div class="card">
           <div class="card-icon">🌿</div>
@@ -723,24 +926,24 @@
           <p>Compassionate counseling for grief related to the loss of loved ones, independence, and the many forms of loss that accompany aging and illness.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🧩</div>
-          <h3>Dementia &amp; Cognitive Decline</h3>
-          <p>As a Certified Dementia Practitioner, I work with individuals and families navigating the unique challenges of memory loss and cognitive change.</p>
-        </div>
-        <div class="card">
           <div class="card-icon">💛</div>
-          <h3>Chronic &amp; Terminal Illness</h3>
-          <p>Thoughtful support for individuals and families facing the emotional weight of a serious diagnosis — finding peace, clarity, and connection through difficult times.</p>
+          <h3>Chronic Conditions</h3>
+          <p>Thoughtful support for individuals and families facing the emotional weight of a chronic or serious diagnosis — finding peace, clarity, and connection.</p>
         </div>
         <div class="card">
-          <div class="card-icon">👨‍👩‍👧</div>
-          <h3>Family Conflict &amp; Dynamics</h3>
-          <p>Guidance through the family tensions that often arise during caregiving decisions, end-of-life planning, and major life transitions.</p>
+          <div class="card-icon">💢</div>
+          <h3>Anger Management</h3>
+          <p>Practical strategies to understand and manage anger, particularly in the context of caregiver stress, family conflict, and overwhelming life circumstances.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🌱</div>
-          <h3>Life Transitions &amp; Aging</h3>
-          <p>Support for older adults adjusting to retirement, changing roles, loss of independence, and the complex emotions that accompany growing older.</p>
+          <div class="card-icon">🕊️</div>
+          <h3>End of Life Care</h3>
+          <p>Sensitive support for individuals and families navigating end-of-life decisions, anticipatory grief, and the emotional weight of terminal illness.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Relationship Issues</h3>
+          <p>Help navigating strained relationships — whether between spouses, siblings, or adult children — that are often intensified during periods of caregiving and loss.</p>
         </div>
       </div>
     </div>
@@ -752,35 +955,35 @@
       <div>
         <p class="section-label">My Approach</p>
         <h2 class="section-title">Therapy Rooted in Empathy &amp; Empowerment</h2>
-        <p class="section-subtitle">I believe that healing comes from feeling truly heard. My work is guided by each person's unique needs, values, and goals — meeting clients wherever they are in their journey.</p>
+        <p class="section-subtitle">My approach is centered on empowering clients to seek the changes they need to lead peaceful, productive lives — leading with compassion, understanding, and empathy.</p>
       </div>
       <div class="approach-pillars">
         <div class="pillar">
           <div class="pillar-dot">💬</div>
           <div class="pillar-text">
-            <h4>Compassionate Listening</h4>
-            <p>Every session begins with creating a safe, non-judgmental space where your experiences and feelings are honored fully.</p>
+            <h4>Motivational Interviewing</h4>
+            <p>A collaborative conversation style that strengthens a client's own motivation and commitment to change by exploring their values and goals.</p>
           </div>
         </div>
         <div class="pillar">
           <div class="pillar-dot">🎯</div>
           <div class="pillar-text">
-            <h4>Practical Guidance</h4>
-            <p>Beyond emotional support, I offer concrete strategies to help manage the real-world demands of caregiving and healthcare decisions.</p>
+            <h4>Behavior Management</h4>
+            <p>Practical strategies to help clients identify patterns, set boundaries, and build habits that support their wellbeing and daily functioning.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-dot">🌱</div>
+          <div class="pillar-text">
+            <h4>Experiential</h4>
+            <p>Learning through direct experience and reflection — engaging clients in active exploration rather than purely talk-based sessions.</p>
           </div>
         </div>
         <div class="pillar">
           <div class="pillar-dot">⚖️</div>
           <div class="pillar-text">
-            <h4>Balance &amp; Healing</h4>
-            <p>Work is focused on restoring balance — providing tools to find peace, resilience, and meaning even in difficult circumstances.</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-dot">🌟</div>
-          <div class="pillar-text">
-            <h4>Whole-Person Focus</h4>
-            <p>Recognizing that emotional, physical, and social wellbeing are deeply connected — care addresses all of these dimensions together.</p>
+            <h4>Behavioral Therapy</h4>
+            <p>Evidence-based techniques focused on changing unhelpful thought and behavior patterns to improve emotional wellbeing and quality of life.</p>
           </div>
         </div>
       </div>
@@ -811,15 +1014,22 @@
           <div class="contact-item">
             <div class="contact-item-icon">✉️</div>
             <div class="contact-item-text">
-              <span>Psychology Today</span>
-              <span>Verified Profile</span>
+              <span>Email</span>
+              <a href="mailto:Schneidb@optonline.net">Schneidb@optonline.net</a>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-icon">🧠</div>
             <div class="contact-item-text">
-              <span>Serving</span>
-              <span>Individuals &amp; Families</span>
+              <span>Psychology Today</span>
+              <a href="https://www.psychologytoday.com/us/therapists/bonnie-schneider-paramus-nj/1681808" target="_blank" rel="noopener noreferrer">View Verified Profile</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📅</div>
+            <div class="contact-item-text">
+              <span>Headway</span>
+              <a href="https://care.headway.co/providers/bonnie-schneider-2?utm_source=pem&utm_medium=direct_link&utm_campaign=172153" target="_blank" rel="noopener noreferrer">Book via Headway</a>
             </div>
           </div>
         </div>
@@ -828,14 +1038,15 @@
       <div class="profile-card">
         <div class="credential-badge">Credentials &amp; Licensure</div>
         <h3>Bonnie Schneider</h3>
-        <p>Licensed and credentialed clinical social worker with specializations in aging, dementia care, grief counseling, and caregiver support.</p>
+        <p>Licensed clinical social worker with 33 years of experience, specializing in caregiver support, grief, and end-of-life care.</p>
         <ul class="credential-list">
-          <li>Master of Social Work (MSW)</li>
-          <li>Licensed Clinical Social Worker (LCSW)</li>
+          <li>MSW — Wurzweiler School of Social Work, Yeshiva University</li>
+          <li>Advanced Graduate Certificate — New York University</li>
+          <li>LCSW — Licensed in New Jersey</li>
           <li>Certified Dementia Practitioner (CDP)</li>
-          <li>30+ Years in Healthcare Settings</li>
-          <li>Verified by Psychology Today</li>
-          <li>Specialization in Aging &amp; End-of-Life Care</li>
+          <li>33 Years of Experience</li>
+          <li>Individual Therapy · Seniors &amp; Adults</li>
+          <li>Languages: English</li>
         </ul>
       </div>
     </div>
