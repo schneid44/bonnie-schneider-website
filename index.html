@@ -264,9 +264,11 @@
 
     .book-contact {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       gap: 0.75rem;
       margin-top: 0.5rem;
+      align-items: center;
     }
 
     .book-contact-item {
@@ -434,11 +436,11 @@
 
     .about-circle-img {
       position: absolute;
-      width: 130%;
+      width: 120%;
       height: auto;
       top: 50%;
       left: 50%;
-      transform: translate(-60%, -50%);
+      transform: translate(-50%, -40%);
     }
 
     .about-image-wrap::after {
@@ -856,9 +858,10 @@
         <div class="book-card">
           <div class="book-card-icon">📋</div>
           <h3>Book Privately</h3>
-          <p>Private booking is available for patients who prefer to pay out-of-pocket or whose insurance plan is not among the covered providers. To schedule a consultation, please reach out directly by email and Bonnie will personally follow up to discuss your needs and find a time that works for you.</p>
-          <div class="book-contact">
-            <a href="mailto:Schneidb@optonline.net" class="btn-primary" style="align-self: flex-start;">✉️ &nbsp;Schneidb@optonline.net</a>
+          <p>Private booking is available for patients who prefer to pay out-of-pocket or whose insurance plan is not among the covered providers. To schedule a consultation, email <strong>Schneidb@optonline.net</strong> and Bonnie will personally follow up to discuss your needs and find a time that works for you.</p>
+          <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.5rem;">
+            <a href="mailto:Schneidb@optonline.net" class="btn-primary" style="font-size: 0.95rem;">✉️ &nbsp;Send Email</a>
+            <button onclick="navigator.clipboard.writeText('Schneidb@optonline.net').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='📋 Copy Address',2000)})" class="btn-secondary" style="cursor: pointer; font-size: 0.95rem;">📋 Copy Address</button>
           </div>
         </div>
 
